@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamFlix</title>
+    <link rel="shortcut icon" href="./images/stream.ico" type="image/x-icon">
+</head>
+<body>
+    <header role="banner">
+        <div class="logo">
+            <a href="./index.html"><img src="./images/stream.svg" alt="logo"></a>
+        </div>
+        <nav class="Barre" role="navigation" aria-label="Navigation principale">
+            <div class="MenuPrincipal">
+                <a href="./index.html" aria-current="page">Accueil</a>
+                <a href="./pages/films.html">Films</a>
+                <a href="./pages/series.html">Séries</a>
+                <a href="./pages/maliste.html">Ma Liste</a>
+            </div>
+            <div class="ZoneUtilisateur">
+                <form action="#" class="formDeRecherche">
+                    <input type="text" placeholder="Films, Séries...etc">
+                    <button type="submit">Rechercher</button>
+                </form>
+                <a href="./profil"><img src="./images/icons/icons8-utilisateur-48.png" alt="profil"></a>
+            </div>
+        </nav>
+    </header>
+    <main role="main">
+        <section aria-labelledby="film-titre">
+            <h1 id="film-titre">Inception</h1>
+            <article aria-describedby="description-film">
+                <p id="description-meta" class="film">
+                    Inception, ou Origine au Québec, est un thriller de science-fiction américano-britannique écrit et réalisé par Christopher Nolan, sorti en 2010.
+                    Sorti deux ans après le grand succès de The Dark Knight du même réalisateur, le film voit le jour grâce à la réputation de celui-ci : les sociétés de production Warner Bros. et Legendary Pictures lui octroient un budget de 160 millions de dollars, sans compter 100 millions dévolus à la promotion du film.
+                </p>
+                <div aria-label="buttons">
+                    <button aria-label="Lecture" ><a href="https://www.allocine.fr/film/fichefilm_gen_cfilm=143692.html">Lecture</a></button>
+                    <button aria-label="Plus d'infos" ><a href="https://fr.wikipedia.org/wiki/Inception">Plus d'infos</a></button>
+                    <button aria-label="Ma Liste" onclick="">Ajouter à ma liste</button>
+                </div>
+            </article>
+        </section>
+        
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
