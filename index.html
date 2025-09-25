@@ -1,51 +1,231 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StreamFlix</title>
-    <link rel="shortcut icon" href="./images/stream.ico" type="image/x-icon">
+    <meta name="description" content="Plateforme StreamFlix : films et séries en streaming. Inception en vedette, tendances, recommandations et nouveautés." />
+    <link rel="shortcut icon" href="./images/stream.ico" type="image/x-icon" />
+    <link rel="preload" as="image" href="./images/hero-bg.jpg" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script defer src="./js/script.js"></script>
+
 </head>
 <body>
+
     <header role="banner">
         <div class="logo">
-            <a href="./index.html"><img src="./images/stream.svg" alt="logo"></a>
+            <a href="./index.html"><img src="./images/stream.svg" alt="StreamFlix" width="132" height="36"></a>
         </div>
         <nav class="Barre" role="navigation" aria-label="Navigation principale">
-            <div class="MenuPrincipal">
-                <a href="./index.html" aria-current="page">Accueil</a>
-                <a href="./pages/films.html">Films</a>
-                <a href="./pages/series.html">Séries</a>
-                <a href="./pages/maliste.html">Ma Liste</a>
+            <div class="MenuPrincipal" role="menubar">
+                <a role="menuitem" href="./index.html" aria-current="page">Accueil</a>
+                <a role="menuitem" href="./pages/films.html">Films</a>
+                <a role="menuitem" href="./pages/series.html">Séries</a>
+                <a role="menuitem" href="./pages/maliste.html">Ma Liste</a>
             </div>
             <div class="ZoneUtilisateur">
-                <form action="#" class="formDeRecherche">
-                    <input type="text" placeholder="Films, Séries...etc">
+                <form action="#" class="formDeRecherche" role="search" aria-label="Recherche de contenus" method="get">
+                    <label for="recherche" class="sr-only">Rechercher un film ou une série</label>
+                    <input id="recherche" name="q" type="search" placeholder="Films, Séries…" required aria-required="true" />
                     <button type="submit">Rechercher</button>
                 </form>
-                <a href="./profil"><img src="./images/icons/icons8-utilisateur-48.png" alt="profil"></a>
+                <a href="./profil" aria-label="Ouvrir le profil utilisateur"><img src="./images/icons/icons8-utilisateur-48.png" alt="Profil" width="32" height="32"></a>
             </div>
         </nav>
     </header>
-    <main role="main">
-        <section aria-labelledby="film-titre">
+
+    <main id="main" role="main">
+        <!-- HERO Inception -->
+        <section id="hero" aria-labelledby="film-titre">
             <h1 id="film-titre">Inception</h1>
-            <article aria-describedby="description-film">
-                <p id="description-meta" class="film">
-                    Inception, ou Origine au Québec, est un thriller de science-fiction américano-britannique écrit et réalisé par Christopher Nolan, sorti en 2010.
-                    Sorti deux ans après le grand succès de The Dark Knight du même réalisateur, le film voit le jour grâce à la réputation de celui-ci : les sociétés de production Warner Bros. et Legendary Pictures lui octroient un budget de 160 millions de dollars, sans compter 100 millions dévolus à la promotion du film.
+            <figure class="hero-figure">
+              <img src="./images/films/inception.webp" alt="Inception" width="1200" height="900">
+              <figcaption class="sr-only">Image de fond décorative pour Inception</figcaption>
+            </figure>
+            <article aria-describedby="description-film" class="hero-article">
+                <meta  content="Inception">
+                <p id="description-film" class="film">
+                    Un voleur qui s'infiltre dans les rêves des autres pour voler leurs secrets découvre qu'il doit réaliser l'impossible : planter une idée plutôt que de la voler.
                 </p>
-                <div aria-label="buttons">
-                    <button aria-label="Lecture" ><a href="https://www.allocine.fr/film/fichefilm_gen_cfilm=143692.html">Lecture</a></button>
-                    <button aria-label="Plus d'infos" ><a href="https://fr.wikipedia.org/wiki/Inception">Plus d'infos</a></button>
-                    <button aria-label="Ma Liste" onclick="">Ajouter à ma liste</button>
+                <p class="meta" aria-label="Métadonnées du film">
+                  <span aria-label="datePublished">2010</span>
+                  <span aria-hidden="true">•</span>
+                  <span aria-label="durationTime">2h28</span>
+                  <span aria-hidden="true">•</span>
+                  <span aria-label="note 4,5 sur 5">4.5/5</span>
+                  <span aria-hidden="true">•</span>
+                  <span aria-label="genre">Sci‑Fi, Thriller</span>
+                </p>
+                <div class="hero-actions" aria-label="Actions">
+                    <a class="btn lecture" href="https://www.allocine.fr/film/fichefilm_gen_cfilm=143692.html" target="_blank" rel="noopener" role="button">Lecture</a>
+                    <a class="btn infos" href="https://fr.wikipedia.org/wiki/Inception" target="_blank" rel="noopener" role="button">Plus d'infos</a>
+                    <button class="btn liste" type="button" aria-pressed="false" aria-label="Ajouter Inception à ma liste">Ajouter à ma liste</button>
                 </div>
             </article>
         </section>
-        
-    </main>
-    <footer>
 
+        <!-- GRILLES DE CONTENUS -->
+        <section id="grilles" aria-label="Sélections de films">
+            <!-- Tendances actuelles -->
+            <section id="tendances" aria-labelledby="tendances-titre">
+                <h2 id="tendances-titre">Tendances actuelles</h2>
+                <ul class="grid" role="list">
+                    <li>
+                        <article itemscope itemtype="https://schema.org/Movie">
+                            <a href="#dark-knight" class="vignette">
+                                <img src="./images/films/darknight.webp" alt="The Dark Knight" width="240" height="360">
+                            </a>
+                            <div class="meta">
+                                <h3 itemprop="name">The Dark Knight</h3>
+                                <p>
+                                    <span itemprop="datePublished">2008</span> · 2h32 · <span aria-label="note 4,8 sur 5">4.8/5</span> · <span itemprop="genre">Action, Crime, Drama</span>
+                                </p>
+                            </div>
+                        </article>
+                    </li>
+                    <li>
+                        <article itemscope itemtype="https://schema.org/Movie">
+                            <a href="#interstellar" class="vignette">
+                                <img src="./images/films/Interstellar_film_poster.jpg" alt="Interstellar" width="240" height="360">
+                            </a>
+                            <div class="meta">
+                                <h3 itemprop="name">Interstellar</h3>
+                                <p>
+                                    <span itemprop="datePublished">2014</span> · 2h49 · <span aria-label="note 4,7 sur 5">4.7/5</span> · <span itemprop="genre">Sci‑Fi, Drama</span>
+                                </p>
+                            </div>
+                        </article>
+                    </li>
+                    <li>
+                        <article itemscope itemtype="https://schema.org/Movie">
+                            <a href="#pulp-fiction" class="vignette">
+                                <img src="./images/films/pulp_fiction.jpg" alt="Pulp Fiction" width="240" height="360">
+                            </a>
+                            <div class="meta">
+                                <h3 itemprop="name">Pulp Fiction</h3>
+                                <p>
+                                    <span itemprop="datePublished">1994</span> · 2h34 · <span aria-label="note 4,6 sur 5">4.6/5</span> · <span itemprop="genre">Crime, Drama</span>
+                                </p>
+                            </div>
+                        </article>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Recommandés pour vous -->
+            <section id="recommandes" aria-labelledby="recommandes-titre">
+                <h2 id="recommandes-titre">Recommandés pour vous</h2>
+                <ul class="grid" role="list">
+                    <li>
+                        <article itemscope itemtype="https://schema.org/Movie">
+                            <a href="#inception" class="vignette">
+                                <img src="./images/films/inception.webp" alt="Inception" width="240" height="360">
+                            </a>
+                            <div class="meta">
+                                <h3 itemprop="name">Inception</h3>
+                                <p>
+                                    <span itemprop="datePublished">2010</span> · 2h28 · <span aria-label="note 4,5 sur 5">4.5/5</span> · <span itemprop="genre">Sci‑Fi, Thriller</span>
+                                </p>
+                            </div>
+                        </article>
+                    </li>
+                    <li>
+                        <article itemscope itemtype="https://schema.org/Movie">
+                            <a href="#matrix" class="vignette">
+                                <img src="./images/films/matrix.jpeg" alt="The Matrix" width="240" height="360">
+                            </a>
+                            <div class="meta">
+                                <h3 itemprop="name">The Matrix</h3>
+                                <p>
+                                    <span itemprop="datePublished">1999</span> · 2h16 · <span aria-label="note 4,5 sur 5">4.5/5</span> · <span itemprop="genre">Action, Sci‑Fi</span>
+                                </p>
+                            </div>
+                        </article>
+                    </li>
+                    <li>
+                        <article itemscope itemtype="https://schema.org/Movie">
+                            <a href="#forrest-gump" class="vignette">
+                                <img src="./images/films/forrest_gump.jpg" alt="Forrest Gump" width="240" height="360">
+                            </a>
+                            <div class="meta">
+                                <h3 itemprop="name">Forrest Gump</h3>
+                                <p>
+                                    <span itemprop="datePublished">1994</span> · 2h22 · <span aria-label="note 4,4 sur 5">4.4/5</span> · <span itemprop="genre">Drama, Romance</span>
+                                </p>
+                            </div>
+                        </article>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Nouveautés -->
+            <section id="nouveautes" aria-labelledby="nouveautes-titre">
+                <h2 id="nouveautes-titre">Nouveautés</h2>
+                <ul class="grid" role="list">
+                    <li>
+                        <article itemscope itemtype="https://schema.org/Movie">
+                            <a href="#interstellar-new" class="vignette">
+                                <img src="./images/films/Interstellar_film_poster.jpg" alt="Interstellar" width="240" height="360">
+                            </a>
+                            <div class="meta">
+                                <h3 itemprop="name">Interstellar</h3>
+                                <p>
+                                    <span itemprop="datePublished">2014</span> · 2h49 · <span aria-label="note 4,7 sur 5">4.7/5</span> · <span itemprop="genre">Sci‑Fi, Drama</span>
+                                </p>
+                            </div>
+                        </article>
+                    </li>
+                    <li>
+                        <article itemscope itemtype="https://schema.org/Movie">
+                            <a href="#dark-knight-new" class="vignette">
+                                <img src="./images/films/darknight.webp" alt="The Dark Knight" width="240" height="360">
+                            </a>
+                            <div class="meta">
+                                <h3 itemprop="name">The Dark Knight</h3>
+                                <p>
+                                    <span itemprop="datePublished">2008</span> · 2h32 · <span aria-label="note 4,8 sur 5">4.8/5</span> · <span itemprop="genre">Action, Crime, Drama</span>
+                                </p>
+                            </div>
+                        </article>
+                    </li>
+                    <li>
+                        <article itemscope itemtype="https://schema.org/Movie">
+                            <a href="#inception-new" class="vignette">
+                                <img src="./images/films/inception.webp" alt="Inception" width="240" height="360">
+                            </a>
+                            <div class="meta">
+                                <h3 itemprop="name">Inception</h3>
+                                <p>
+                                    <span itemprop="datePublished">2010</span> · 2h28 · <span aria-label="note 4,5 sur 5">4.5/5</span> · <span itemprop="genre">Sci‑Fi, Thriller</span>
+                                </p>
+                            </div>
+                        </article>
+                    </li>
+                </ul>
+            </section>
+        </section>
+
+       
+    </main>
+
+    <footer aria-label="footer">
+        <nav aria-label="Liens utiles">
+            <ul class="footer-liens">
+                <li><a href="#aide">Aide</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#mentions">Mentions légales</a></li>
+                <li><a href="#conditions">Conditions d'utilisation</a></li>
+            </ul>
+        </nav>
+        <nav aria-label="Réseaux sociaux">
+            <ul class="reseaux">
+                <li><a href="#" aria-label="Facebook">TikTok</a></li>
+                <li><a href="#" aria-label="X">X</a></li>
+                <li><a href="#" aria-label="Instagram">Youtube</a></li>
+            </ul>
+        </nav>
+        <p>© <span id="year">2025</span> StreamFlix. Tous droits réservés.</p>
     </footer>
 </body>
 </html>
